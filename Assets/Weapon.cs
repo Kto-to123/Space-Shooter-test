@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
         while (true)
         {
             Instantiate(Bullet, weaponPoint.position, weaponPoint.rotation);
-            yield return new WaitForSeconds(reload);
+            yield return new WaitForSecondsRealtime(reload);
         }
     }
 }

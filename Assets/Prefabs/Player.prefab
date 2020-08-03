@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 8269090367059848715}
   - component: {fileID: 1983857114}
   - component: {fileID: 5293565220694399357}
+  - component: {fileID: 4839406492574497089}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991a01fcf2d5ba4469618866e1c5ca16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reload: 0.5
   Bullet: {fileID: 8873849880786709137, guid: e89a4221e8b9ad545b1d998cabbbe4b4, type: 3}
   weaponPoint: {fileID: 913581716}
 --- !u!60 &5293565220694399357
@@ -209,3 +211,15 @@ PolygonCollider2D:
       - {x: 0.255, y: -0.285}
       - {x: 0.45499998, y: -0.265}
       - {x: 0.49499997, y: -0.255}
+--- !u!114 &4839406492574497089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8269090367059848710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a9911f5ac0fb340b6e57a1854a3605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

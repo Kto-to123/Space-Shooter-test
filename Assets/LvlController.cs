@@ -16,12 +16,21 @@ public class LvlController : MonoBehaviour
     public Boundary boundary;
     public List<EnemyItem> Enemys;
 
+    Coroutine sp;
+
     private void Start()
     {
         foreach (var enemy in Enemys)
         {
-            StartCoroutine(spawn(enemy.enemy, enemy.count, enemy.respawn, enemy.firstDelay));
+            sp = StartCoroutine(spawn(enemy.enemy, enemy.count, enemy.respawn, enemy.firstDelay));
         }
+
+        Progress.GameWin += StopSpawn;
+    }
+
+    void StopSpawn()
+    {
+        StopCoroutine(sp);
     }
 
     IEnumerator spawn(GameObject enemy, int count, float respawn, float firstDelay)
