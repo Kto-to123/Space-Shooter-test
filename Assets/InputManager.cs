@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    static InputManager instance;
+
     public Joystick joystick;
 
-    public float GetHorizontal()
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public static float GetHorizontal()
     {
         var kay = Input.GetAxis("Horizontal");
-        var joy = joystick.Horizontal;
+        var joy = instance.joystick.Horizontal;
         return joy != 0 ? joy : kay;
     }
 
-    public float GetVertical()
+    public static float GetVertical()
     {
         var kay = Input.GetAxis("Vertical");
-        var joy = joystick.Vertical;
+        var joy = instance.joystick.Vertical;
         return joy != 0 ? joy : kay;
     }
 }

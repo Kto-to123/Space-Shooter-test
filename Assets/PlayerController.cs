@@ -12,11 +12,10 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 0.1f;
     public Boundary boundary;
-    public InputManager input;
 
     private void FixedUpdate()
     {
-        Vector3 move = new Vector3(input.GetHorizontal() * speed, input.GetVertical() * speed, 0);
+        Vector3 move = new Vector3(InputManager.GetHorizontal() * speed, InputManager.GetVertical() * speed, 0);
 
         transform.Translate(move);
         transform.position = new Vector3
