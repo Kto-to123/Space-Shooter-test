@@ -12,10 +12,11 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 0.1f;
     public Boundary boundary;
+    public InputManager input;
 
     private void FixedUpdate()
     {
-        Vector3 move = new Vector3(GetHorizontal() * speed, GetVertical() * speed, 0);
+        Vector3 move = new Vector3(input.GetHorizontal() * speed, input.GetVertical() * speed, 0);
 
         transform.Translate(move);
         transform.position = new Vector3
@@ -24,15 +25,5 @@ public class PlayerController : MonoBehaviour
             Mathf.Clamp(transform.position.y, boundary.yMin, boundary.yMax),
             0f
         );
-    }
-
-    float GetHorizontal()
-    {
-        return Input.GetAxis("Horizontal");
-    }
-
-    float GetVertical()
-    {
-        return Input.GetAxis("Vertical");
     }
 }
