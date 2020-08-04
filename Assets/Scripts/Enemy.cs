@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    public static UnityAction<GameObject> ReturnInPool;
+
     public float speed = 0.1f;
 
     private void Awake()
@@ -25,11 +28,11 @@ public class Enemy : MonoBehaviour
     {
         var player = collision.gameObject.GetComponent<PlayerHealth>();
         if (player != null) player.SetDamage();
-        Destroy(gameObject);
+        ReturnInPool?.Invoke(gameObject);
     }
 
     private void Destroy()
     {
-        Destroy(gameObject);
+        ReturnInPool?.Invoke(gameObject);
     }
 }

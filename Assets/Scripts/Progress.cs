@@ -28,8 +28,8 @@ public class Progress : MonoBehaviour
             if (way < 1) slider.value = way;
             else if (way >= 1)
             {
-                GameWin?.Invoke();
                 win = true;
+                GameWin?.Invoke();
             }
         }
     }

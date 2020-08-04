@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameWinPanelUI : MonoBehaviour
+public class GameOverPanelUI : MonoBehaviour
 {
     public GameObject UI;
 
     private void Awake()
     {
         UI.SetActive(false);
-        Progress.GameWin += Show;
+        PlayerHealth.GameOver += Show;
     }
 
-    public void GoMainMenu()
+    private void OnDisable()
     {
-        SceneManager.LoadScene("MainMenu");
+        PlayerHealth.GameOver -= Show;
+    }
+
+    public void RestartThisScean()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void Show()
